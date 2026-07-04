@@ -1,0 +1,98 @@
+#!/bin/sh
+#
+# ============================================================================
+# Nokia Beacon Diagnostic Toolkit (NBDT)
+# File    : nbdt
+# Purpose : Main launcher for the diagnostic toolkit
+# Version : 1.2.0
+# License : MIT
+# ============================================================================
+
+BASE="/opt/nbdt"
+
+##############################################################################
+# Display Main Menu
+##############################################################################
+
+show_menu() {
+
+    clear
+
+    echo "=================================================="
+    echo "           Nokia Beacon 3.2"
+    echo "        Diagnostic Toolkit"
+    echo "             NBDT v1.2"
+    echo "=================================================="
+    echo
+    echo " 1) About"
+    echo " 2) System Information"
+    echo " 3) Thermal Information"
+    echo " 4) WiFi Information"
+    echo " 5) Health Status"
+    echo
+    echo " 0) Exit"
+    echo
+    echo "--------------------------------------------------"
+    printf "Select Option : "
+}
+
+##############################################################################
+# Main Loop
+##############################################################################
+
+while true
+do
+    show_menu
+
+    read CHOICE
+
+    case "$CHOICE" in
+
+        1)
+            "$BASE/about.sh"
+            ;;
+
+        2)
+            "$BASE/system.sh"
+            ;;
+
+        3)
+            "$BASE/thermal.sh"
+            ;;
+
+        4)
+            "$BASE/wifi.sh"
+            ;;
+
+        5)
+            "$BASE/health.sh"
+            ;;
+
+        0)
+            clear
+            echo
+            echo "=================================================="
+            echo "      Thank you for using NBDT v1.2"
+            echo "=================================================="
+            echo
+            exit 0
+            ;;
+
+        *)
+            echo
+            echo "Invalid option. Please try again."
+            sleep 1
+            continue
+            ;;
+    esac
+
+    echo
+    echo "--------------------------------------------------"
+    printf "Press ENTER to return to menu..."
+    read dummy
+
+done
+
+##############################################################################
+# End of File
+##############################################################################
