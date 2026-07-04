@@ -1,18 +1,11 @@
 #!/bin/sh
 #
-# ============================================================================
-# Nokia Beacon Diagnostic Toolkit (NBDT)
-# File    : nbdt
-# Purpose : Main launcher for the diagnostic toolkit
+# Nokia Beacon Diagnostic Toolkit
+# Main Launcher
 # Version : 1.2.0
-# License : MIT
-# ============================================================================
+#
 
 BASE="/opt/nbdt"
-
-##############################################################################
-# Display Main Menu
-##############################################################################
 
 show_menu() {
 
@@ -29,16 +22,13 @@ show_menu() {
     echo " 3) Thermal Information"
     echo " 4) WiFi Information"
     echo " 5) Health Status"
+    echo " 6) Connected Clients"
     echo
     echo " 0) Exit"
     echo
     echo "--------------------------------------------------"
     printf "Select Option : "
 }
-
-##############################################################################
-# Main Loop
-##############################################################################
 
 while true
 do
@@ -67,20 +57,20 @@ do
         5)
             "$BASE/health.sh"
             ;;
-
+       6)
+        "$BASE/clients.sh"
+         ;;
         0)
             clear
             echo
-            echo "=================================================="
-            echo "      Thank you for using NBDT v1.2"
-            echo "=================================================="
+            echo "Thank you for using NBDT."
             echo
             exit 0
             ;;
 
         *)
             echo
-            echo "Invalid option. Please try again."
+            echo "Invalid option."
             sleep 1
             continue
             ;;
@@ -92,7 +82,3 @@ do
     read dummy
 
 done
-
-##############################################################################
-# End of File
-##############################################################################
