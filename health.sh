@@ -282,4 +282,4 @@ printf "%-16s : %s\n" "Memory" "$MEM_CHECK"
 printf "%-16s : %s\n" "CPU" "$CPU_CHECK"
 printf "%-16s : %s\n" "Network" "$NET_CHECK"
 line
-root@AAP321NK:/opt/nbdt#
+
